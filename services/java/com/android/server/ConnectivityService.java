@@ -31,8 +31,6 @@ import android.net.MobileDataStateTracker;
 import android.net.NetworkInfo;
 import android.net.NetworkStateTracker;
 import android.net.wifi.WifiStateTracker;
-import android.net.wimax.WimaxHelper;
-import android.net.wimax.WimaxManagerConstants;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
@@ -399,17 +397,6 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                     mNetTrackers[netType].teardown();
                 }
                 break;
-            case ConnectivityManager.TYPE_WIMAX:
-                NetworkStateTracker nst = makeWimaxStateTracker();
-                if (nst != null) {
-                    nst.startMonitoring();
-                }
-                mNetTrackers[netType] = nst;
-                if (noMobileData) {
-                    if (DBG) Slog.d(TAG, "tearing down WiMAX networks due to setting");
-                    mNetTrackers[netType].teardown();
-                }
-                break;
             default:
                 Slog.e(TAG, "Trying to create a DataStateTracker for an unknown radio type " +
                         mNetAttributes[netType].mRadio);
@@ -427,88 +414,6 @@ public class ConnectivityService extends IConnectivityManager.Stub {
         if (DBG) {
             mInetLog = new ArrayList();
         }
-    }
-
-
-    private NetworkStateTracker makeWimaxStateTracker() {
-        //Initialize Wimax
-        DexClassLoader wimaxClassLoader;
-        Class wimaxStateTrackerClass = null;
-        Class wimaxServiceClass = null;
-        Class wimaxManagerClass;
-        String wimaxManagerClassName;
-        String wimaxServiceClassName;
-        String wimaxStateTrackerClassName;
-
-        NetworkStateTracker wimaxStateTracker = null;
-
-        boolean isWimaxEnabled = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_wimaxEnabled);
-
-        if (isWimaxEnabled) {
-            try {
-                wimaxManagerClassName = mContext.getResources().getString(
-                        com.android.internal.R.string.config_wimaxManagerClassname);
-                wimaxServiceClassName = mContext.getResources().getString(
-                        com.android.internal.R.string.config_wimaxServiceClassname);
-                wimaxStateTrackerClassName = mContext.getResources().getString(
-                        com.android.internal.R.string.config_wimaxStateTrackerClassname);
-
-                wimaxClassLoader = WimaxHelper.getWimaxClassLoader(mContext);
-
-                try {
-                    wimaxManagerClass = wimaxClassLoader.loadClass(wimaxManagerClassName);
-                    wimaxStateTrackerClass = wimaxClassLoader.loadClass(wimaxStateTrackerClassName);
-                    wimaxServiceClass = wimaxClassLoader.loadClass(wimaxServiceClassName);
-                } catch (ClassNotFoundException ex) {
-                    ex.printStackTrace();
-                    return null;
-                }
-            } catch(Resources.NotFoundException ex) {
-                Slog.e(TAG, "Wimax Resources does not exist!!! ");
-                return null;
-            }
-
-            try {
-                Slog.v(TAG, "Starting Wimax Service... ");
-
-                Constructor wmxStTrkrConst = wimaxStateTrackerClass.getConstructor
-                        (new Class[] {Context.class,Handler.class});
-                wimaxStateTracker = (NetworkStateTracker)wmxStTrkrConst.newInstance(mContext,mHandler);
-
-                Constructor wmxSrvConst = wimaxServiceClass.getDeclaredConstructor
-                        (new Class[] {Context.class,wimaxStateTrackerClass});
-                wmxSrvConst.setAccessible(true);
-                IBinder svcInvoker = (IBinder) wmxSrvConst.newInstance(mContext,wimaxStateTracker);
-                wmxSrvConst.setAccessible(false);
-
-                ServiceManager.addService(WimaxManagerConstants.WIMAX_SERVICE, svcInvoker);
-
-            } catch(ClassCastException ex) {
-                ex.printStackTrace();
-                return null;
-            } catch (NoSuchMethodException ex) {
-                ex.printStackTrace();
-                return null;
-            } catch (InstantiationException ex) {
-                ex.printStackTrace();
-                return null;
-            } catch(IllegalAccessException ex) {
-                ex.printStackTrace();
-                return null;
-            } catch(InvocationTargetException ex) {
-                ex.printStackTrace();
-                return null;
-            } catch(Exception ex) {
-                ex.printStackTrace();
-                return null;
-            }
-        } else {
-            Slog.e(TAG, "Wimax is not enabled or not added to the network attributes!!! ");
-            return null;
-        }
-
-        return wimaxStateTracker;
     }
 
     /**
@@ -998,12 +903,6 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                 }
                 mNetTrackers[ConnectivityManager.TYPE_MOBILE].reconnect();
             }
-            if (mNetTrackers[ConnectivityManager.TYPE_WIMAX] != null) {
-                if (DBG) {
-                    Slog.d(TAG, "starting up " + mNetTrackers[ConnectivityManager.TYPE_WIMAX]);
-                }
-                mNetTrackers[ConnectivityManager.TYPE_WIMAX].reconnect();
-            }
         } else {
             for (NetworkStateTracker nt : mNetTrackers) {
                 if (nt == null) continue;
@@ -1012,9 +911,6 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                     if (DBG) Slog.d(TAG, "tearing down " + nt);
                     nt.teardown();
                 }
-            }
-            if (mNetTrackers[ConnectivityManager.TYPE_WIMAX] != null) {
-                mNetTrackers[ConnectivityManager.TYPE_WIMAX].teardown();
             }
         }
 
@@ -1150,12 +1046,6 @@ public class ConnectivityService extends IConnectivityManager.Stub {
                         Slog.e(TAG, "not failing over to mobile type " + checkType +
                                 " because Mobile Data Disabled");
                         continue;
-                }
-                if (mNetAttributes[checkType].mRadio == ConnectivityManager.TYPE_WIMAX &&
-                        noMobileData) {
-                    Slog.e(TAG, "not failing over to mobile type " + checkType +
-                            " because Mobile Data Disabled");
-                    continue;
                 }
                 NetworkStateTracker checkTracker = mNetTrackers[checkType];
                 NetworkInfo checkInfo = checkTracker.getNetworkInfo();
