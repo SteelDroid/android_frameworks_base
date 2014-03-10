@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * Low-level class holding the list of messages to be dispatched by a
  * {@link Looper}.  Messages are not added directly to a MessageQueue,
  * but rather through {@link Handler} objects associated with the Looper.
- * 
+ *
  * <p>You can retrieve the MessageQueue for the current thread with
  * {@link Looper#myQueue() Looper.myQueue()}.
  */
@@ -42,7 +42,7 @@ public class MessageQueue {
 
     @SuppressWarnings("unused")
     private int mPtr; // used by native code
-    
+
     private native void nativeInit();
     private native void nativeDestroy();
     private native void nativePollOnce(int ptr, int timeoutMillis);
@@ -94,11 +94,11 @@ public class MessageQueue {
             mIdleHandlers.remove(handler);
         }
     }
-    
+
     MessageQueue() {
         nativeInit();
     }
-    
+
     @Override
     protected void finalize() throws Throwable {
         try {
@@ -258,7 +258,7 @@ public class MessageQueue {
                 }
                 p = n;
             }
-            
+
             return found;
         }
     }
@@ -326,15 +326,4 @@ public class MessageQueue {
         }
     }
 
-    /*
-    private void dumpQueue_l()
-    {
-        Message p = mMessages;
-        System.out.println(this + "  queue is:");
-        while (p != null) {
-            System.out.println("            " + p);
-            p = p.next;
-        }
-    }
-    */
 }

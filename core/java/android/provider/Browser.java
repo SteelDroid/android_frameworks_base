@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.webkit.WebIconDatabase;
 

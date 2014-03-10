@@ -24,7 +24,6 @@ import android.content.pm.PackageManager;
 import android.content.Context;
 import android.content.Intent;
 import android.Manifest;
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.Arrays;

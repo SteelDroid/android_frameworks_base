@@ -73,15 +73,15 @@ public final class Message implements Parcelable {
      * receiver.
      */
     public Messenger replyTo;
-    
+
     /*package*/ long when;
-    
+
     /*package*/ Bundle data;
-    
-    /*package*/ Handler target;     
-    
-    /*package*/ Runnable callback;   
-    
+
+    /*package*/ Handler target;
+
+    /*package*/ Runnable callback;
+
     // sometimes we store linked lists of these things
     /*package*/ Message next;
 
@@ -90,7 +90,7 @@ public final class Message implements Parcelable {
     private static int sPoolSize = 0;
 
     private static final int MAX_POOL_SIZE = 10;
-    
+
     /**
      * Return a new Message instance from the global pool. Allows us to
      * avoid allocating new objects in many cases.
@@ -273,7 +273,7 @@ public final class Message implements Parcelable {
     public long getWhen() {
         return when;
     }
-    
+
     public void setTarget(Handler target) {
         this.target = target;
     }
@@ -301,7 +301,7 @@ public final class Message implements Parcelable {
     public Runnable getCallback() {
         return callback;
     }
-    
+
     /** 
      * Obtains a Bundle of arbitrary data associated with this
      * event, lazily creating it if necessary. Set this value by calling
@@ -373,7 +373,7 @@ public final class Message implements Parcelable {
 
     String toString(long now) {
         StringBuilder   b = new StringBuilder();
-        
+
         b.append("{ what=");
         b.append(what);
 
@@ -407,12 +407,12 @@ public final class Message implements Parcelable {
             msg.readFromParcel(source);
             return msg;
         }
-        
+
         public Message[] newArray(int size) {
             return new Message[size];
         }
     };
-        
+
     public int describeContents() {
         return 0;
     }

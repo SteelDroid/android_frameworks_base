@@ -157,7 +157,7 @@ public abstract class BackupAgent extends ContextWrapper {
      * onRestore() throws an exception, the OS will assume that the
      * application's data may now be in an incoherent state, and will clear it
      * before proceeding.
-     * 
+     *
      * @param data A structured wrapper around an open, read-only
      *            file descriptor pointing to a full snapshot of the
      *            application's data.  The application should consume every
@@ -176,7 +176,6 @@ public abstract class BackupAgent extends ContextWrapper {
     public abstract void onRestore(BackupDataInput data, int appVersionCode,
             ParcelFileDescriptor newState)
             throws IOException;
-
 
     // ----- Core implementation -----
 

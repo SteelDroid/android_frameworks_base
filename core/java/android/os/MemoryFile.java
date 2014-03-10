@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-
 /**
  * MemoryFile is a wrapper for the Linux ashmem driver.
  * MemoryFiles are backed by shared memory, which can be optionally
@@ -154,7 +153,7 @@ public class MemoryFile
             close();
         }
     }
-   
+
     /**
      * Returns the length of the memory file.
      *
@@ -264,7 +263,6 @@ public class MemoryFile
      * for caveats. This must be here to allow classes outside <code>android.os</code< to
      * make ParcelFileDescriptors from MemoryFiles, as
      * {@link ParcelFileDescriptor#ParcelFileDescriptor(FileDescriptor)} is package private.
-     *
      *
      * @return The file descriptor owned by this memory file object.
      *         The file descriptor is not duplicated.

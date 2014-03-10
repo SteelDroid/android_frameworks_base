@@ -72,7 +72,6 @@ public final class ParcelUuid implements Parcelable {
         return mUuid.toString();
     }
 
-
    @Override
    public int hashCode() {
        return mUuid.hashCode();

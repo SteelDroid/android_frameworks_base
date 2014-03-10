@@ -16,43 +16,6 @@
 
 package android.os;
 
-/**
- * Interface for classes whose instances can be written to
- * and restored from a {@link Parcel}.  Classes implementing the Parcelable
- * interface must also have a static field called <code>CREATOR</code>, which
- * is an object implementing the {@link Parcelable.Creator Parcelable.Creator}
- * interface.
- * 
- * <p>A typical implementation of Parcelable is:</p>
- * 
- * <pre>
- * public class MyParcelable implements Parcelable {
- *     private int mData;
- *
- *     public int describeContents() {
- *         return 0;
- *     }
- *
- *     public void writeToParcel(Parcel out, int flags) {
- *         out.writeInt(mData);
- *     }
- *
- *     public static final Parcelable.Creator&lt;MyParcelable&gt; CREATOR
- *             = new Parcelable.Creator&lt;MyParcelable&gt;() {
- *         public MyParcelable createFromParcel(Parcel in) {
- *             return new MyParcelable(in);
- *         }
- *
- *         public MyParcelable[] newArray(int size) {
- *             return new MyParcelable[size];
- *         }
- *     };
- *     
- *     private MyParcelable(Parcel in) {
- *         mData = in.readInt();
- *     }
- * }</pre>
- */
 public interface Parcelable {
     /**
      * Flag for use with {@link #writeToParcel}: the object being written
@@ -63,14 +26,14 @@ public interface Parcelable {
      * may want to release resources at this point.
      */
     public static final int PARCELABLE_WRITE_RETURN_VALUE = 0x0001;
-    
+
     /**
      * Bit masks for use with {@link #describeContents}: each bit represents a
      * kind of object considered to have potential special significance when
      * marshalled.
      */
     public static final int CONTENTS_FILE_DESCRIPTOR = 0x0001;
-    
+
     /**
      * Describe the kinds of special objects contained in this Parcelable's
      * marshalled representation.
@@ -79,7 +42,7 @@ public interface Parcelable {
      * by the Parcelable.
      */
     public int describeContents();
-    
+
     /**
      * Flatten this object in to a Parcel.
      * 
@@ -103,7 +66,7 @@ public interface Parcelable {
          * @return Returns a new instance of the Parcelable class.
          */
         public T createFromParcel(Parcel source);
-        
+
         /**
          * Create a new array of the Parcelable class.
          * 

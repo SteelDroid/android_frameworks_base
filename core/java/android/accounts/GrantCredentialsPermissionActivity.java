@@ -17,19 +17,15 @@ package android.accounts;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.widget.TextView;
 import android.widget.LinearLayout;
-import android.widget.ImageView;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.Window;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.RegisteredServicesCache;
 import android.text.TextUtils;
-import android.graphics.drawable.Drawable;
 import com.android.internal.R;
 
 /**
@@ -74,7 +70,6 @@ public class GrantCredentialsPermissionActivity extends Activity implements View
         }
 
         final String accountTypeLabel = accountManagerService.getAccountLabel(mAccount.type);
-
 
         final TextView authTokenTypeView = (TextView) findViewById(R.id.authtoken_type);
         authTokenTypeView.setVisibility(View.GONE);

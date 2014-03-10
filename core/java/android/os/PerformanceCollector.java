@@ -16,46 +16,8 @@
 
 package android.os;
 
-
 import java.util.ArrayList;
 
-/**
- * Collects performance data between two function calls in Bundle objects and
- * outputs the results using writer of type {@link PerformanceResultsWriter}.
- * <p>
- * {@link #beginSnapshot(String)} and {@link #endSnapshot()} functions collect
- * memory usage information and measure runtime between calls to begin and end.
- * These functions logically wrap around an entire test, and should be called
- * with name of test as the label, e.g. EmailPerformanceTest.
- * <p>
- * {@link #startTiming(String)} and {@link #stopTiming(String)} functions
- * measure runtime between calls to start and stop. These functions logically
- * wrap around a single test case or a small block of code, and should be called
- * with the name of test case as the label, e.g. testSimpleSendMailSequence.
- * <p>
- * {@link #addIteration(String)} inserts intermediate measurement point which
- * can be labeled with a String, e.g. Launch email app, compose, send, etc.
- * <p>
- * Snapshot and timing functions do not interfere with each other, and thus can
- * be called in any order. The intended structure is to wrap begin/endSnapshot
- * around calls to start/stopTiming, for example:
- * <p>
- * <code>beginSnapshot("EmailPerformanceTest");
- * startTiming("testSimpleSendSequence");
- * addIteration("Launch email app");
- * addIteration("Compose");
- * stopTiming("Send");
- * startTiming("testComplexSendSequence");
- * stopTiming("");
- * startTiming("testAddLabel");
- * stopTiming("");
- * endSnapshot();</code>
- * <p>
- * Structure of results output is up to implementor of
- * {@link PerformanceResultsWriter }.
- *
- * {@hide} Pending approval for public API.
- */
 public class PerformanceCollector {
 
     /**

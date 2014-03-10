@@ -25,7 +25,6 @@ import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -45,10 +44,8 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -65,8 +62,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import com.android.internal.R;
 import com.android.internal.app.ThemeUtils;
-import com.android.internal.telephony.ITelephony;
-import com.android.internal.telephony.TelephonyIntents;
 
 /**
  * A system service that provides  account, password, and authtoken management for all

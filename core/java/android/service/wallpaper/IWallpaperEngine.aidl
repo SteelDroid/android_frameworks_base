@@ -25,5 +25,5 @@ oneway interface IWallpaperEngine {
     void setDesiredSize(int width, int height);
     void setVisibility(boolean visible);
     void dispatchPointer(in MotionEvent event);
-	void destroy();
+    void destroy();
 }

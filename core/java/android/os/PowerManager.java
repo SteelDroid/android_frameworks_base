@@ -20,91 +20,10 @@ import android.util.Log;
 
 import com.android.internal.os.RuntimeInit;
 
-/**
- * This class gives you control of the power state of the device.  
- * 
- * <p><b>Device battery life will be significantly affected by the use of this API.</b>  Do not
- * acquire WakeLocks unless you really need them, use the minimum levels possible, and be sure
- * to release it as soon as you can.
- * 
- * <p>You can obtain an instance of this class by calling 
- * {@link android.content.Context#getSystemService(java.lang.String) Context.getSystemService()}.
- * 
- * <p>The primary API you'll use is {@link #newWakeLock(int, String) newWakeLock()}.  This will
- * create a {@link PowerManager.WakeLock} object.  You can then use methods on this object to 
- * control the power state of the device.  In practice it's quite simple:
- * 
- * {@samplecode
- * PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
- * PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Tag");
- * wl.acquire();
- *   ..screen will stay on during this section..
- * wl.release();
- * }
- * 
- * <p>The following flags are defined, with varying effects on system power.  <i>These flags are
- * mutually exclusive - you may only specify one of them.</i>
- * <table border="2" width="85%" align="center" frame="hsides" rules="rows">
- *
- *     <thead>
- *     <tr><th>Flag Value</th> 
- *     <th>CPU</th> <th>Screen</th> <th>Keyboard</th></tr>
- *     </thead>
- *
- *     <tbody>
- *     <tr><th>{@link #PARTIAL_WAKE_LOCK}</th>
- *         <td>On*</td> <td>Off</td> <td>Off</td> 
- *     </tr>
- *     
- *     <tr><th>{@link #SCREEN_DIM_WAKE_LOCK}</th>
- *         <td>On</td> <td>Dim</td> <td>Off</td> 
- *     </tr>
- *
- *     <tr><th>{@link #SCREEN_BRIGHT_WAKE_LOCK}</th>
- *         <td>On</td> <td>Bright</td> <td>Off</td> 
- *     </tr>
- *     
- *     <tr><th>{@link #FULL_WAKE_LOCK}</th>
- *         <td>On</td> <td>Bright</td> <td>Bright</td> 
- *     </tr>
- *     </tbody>
- * </table>
- * 
- * <p>*<i>If you hold a partial wakelock, the CPU will continue to run, irrespective of any timers 
- * and even after the user presses the power button.  In all other wakelocks, the CPU will run, but
- * the user can still put the device to sleep using the power button.</i>
- * 
- * <p>In addition, you can add two more flags, which affect behavior of the screen only.  <i>These
- * flags have no effect when combined with a {@link #PARTIAL_WAKE_LOCK}.</i>
- * <table border="2" width="85%" align="center" frame="hsides" rules="rows">
- *
- *     <thead>
- *     <tr><th>Flag Value</th> <th>Description</th></tr>
- *     </thead>
- *
- *     <tbody>
- *     <tr><th>{@link #ACQUIRE_CAUSES_WAKEUP}</th>
- *         <td>Normal wake locks don't actually turn on the illumination.  Instead, they cause
- *         the illumination to remain on once it turns on (e.g. from user activity).  This flag
- *         will force the screen and/or keyboard to turn on immediately, when the WakeLock is
- *         acquired.  A typical use would be for notifications which are important for the user to
- *         see immediately.</td> 
- *     </tr>
- *     
- *     <tr><th>{@link #ON_AFTER_RELEASE}</th>
- *         <td>If this flag is set, the user activity timer will be reset when the WakeLock is
- *         released, causing the illumination to remain on a bit longer.  This can be used to 
- *         reduce flicker if you are cycling between wake lock conditions.</td> 
- *     </tr>
- *     </tbody>
- * </table>
- * 
- * 
- */
 public class PowerManager
 {
     private static final String TAG = "PowerManager";
-    
+
     /**
      * These internal values define the underlying power elements that we might
      * want to control individually.  Eventually we'd like to expose them.
@@ -115,7 +34,7 @@ public class PowerManager
     private static final int WAKE_BIT_SCREEN_BRIGHT = 8;
     private static final int WAKE_BIT_KEYBOARD_BRIGHT = 16;
     private static final int WAKE_BIT_PROXIMITY_SCREEN_OFF = 32;
-    
+
     private static final int LOCK_MASK = WAKE_BIT_CPU_STRONG
                                         | WAKE_BIT_CPU_WEAK
                                         | WAKE_BIT_SCREEN_DIM
@@ -187,7 +106,7 @@ public class PowerManager
      * Does not work with PARTIAL_WAKE_LOCKs.
      */
     public static final int ON_AFTER_RELEASE = 0x20000000;
-    
+
     /**
      * Class lets you say that you need to have the device on.
      *
@@ -257,11 +176,11 @@ public class PowerManager
                 }
             }
         }
-        
+
         /**
          * Makes sure the device is on at the level you asked when you created
          * the wake lock. The lock will be released after the given timeout.
-         * 
+         *
          * @param timeout Release the lock after the give timeout in milliseconds.
          */
         public void acquire(long timeout) {
@@ -547,7 +466,7 @@ public class PowerManager
      *  either a PokeLock object (like WakeLock) or, possibly just a
      *  method call to set the poke lock. 
      */
-    
+
     IPowerManager mService;
     Handler mHandler;
 }

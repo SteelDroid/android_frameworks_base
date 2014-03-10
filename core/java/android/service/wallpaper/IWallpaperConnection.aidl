@@ -23,6 +23,6 @@ import android.service.wallpaper.IWallpaperEngine;
  * @hide
  */
 interface IWallpaperConnection {
-	void attachEngine(IWallpaperEngine engine);
+    void attachEngine(IWallpaperEngine engine);
     ParcelFileDescriptor setWallpaper(String name);
 }
