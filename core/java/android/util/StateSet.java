@@ -147,7 +147,7 @@ public class StateSet {
         System.arraycopy(states, 0, trimmedStates, 0, newSize);
         return trimmedStates;
     }
-    
+
     public static String dump(int[] states) {
         StringBuilder sb = new StringBuilder();
         
@@ -172,7 +172,7 @@ public class StateSet {
                 break;
             }
         }
-        
+
         return sb.toString();
     }
 }

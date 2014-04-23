@@ -22,7 +22,7 @@ package android.util;
  */
 public class StringBuilderPrinter implements Printer {
     private final StringBuilder mBuilder;
-    
+
     /**
      * Create a new Printer that sends to a StringBuilder object.
      * 
@@ -31,7 +31,7 @@ public class StringBuilderPrinter implements Printer {
     public StringBuilderPrinter(StringBuilder builder) {
         mBuilder = builder;
     }
-    
+
     public void println(String x) {
         mBuilder.append(x);
         int len = x.length();

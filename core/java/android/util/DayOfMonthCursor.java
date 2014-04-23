@@ -82,12 +82,12 @@ public class DayOfMonthCursor extends MonthDisplayHelper {
         }
         return 1;
     }
-    
+
     public void setSelectedDayOfMonth(int dayOfMonth) {
         mRow = getRowOf(dayOfMonth);
         mColumn = getColumnOf(dayOfMonth);
     }
-    
+
     public boolean isSelected(int row, int column) {
         return (mRow == row) && (mColumn == column);
     }

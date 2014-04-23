@@ -23,4 +23,3 @@ public class TimeFormatException extends RuntimeException
         super(s);
     }
 }
-

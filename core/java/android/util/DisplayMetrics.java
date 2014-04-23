@@ -20,7 +20,6 @@ import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
 import android.os.*;
 
-
 /**
  * A structure describing general information about a display, such as its
  * size, density, and font scaling.
@@ -72,16 +71,16 @@ public class DisplayMetrics {
     /**
      * The logical density of the display.  This is a scaling factor for the
      * Density Independent Pixel unit, where one DIP is one pixel on an
-     * approximately 160 dpi screen (for example a 240x320, 1.5"x2" screen), 
-     * providing the baseline of the system's display. Thus on a 160dpi screen 
+     * approximately 160 dpi screen (for example a 240x320, 1.5"x2" screen),
+     * providing the baseline of the system's display. Thus on a 160dpi screen
      * this density value will be 1; on a 120 dpi screen it would be .75; etc.
-     *  
-     * <p>This value does not exactly follow the real screen size (as given by 
+     *
+     * <p>This value does not exactly follow the real screen size (as given by
      * {@link #xdpi} and {@link #ydpi}, but rather is used to scale the size of
-     * the overall UI in steps based on gross changes in the display dpi.  For 
-     * example, a 240x320 screen will have a density of 1 even if its width is 
-     * 1.8", 1.3", etc. However, if the screen resolution is increased to 
-     * 320x480 but the screen size remained 1.5"x2" then the density would be 
+     * the overall UI in steps based on gross changes in the display dpi.  For
+     * example, a 240x320 screen will have a density of 1 even if its width is
+     * 1.8", 1.3", etc. However, if the screen resolution is increased to
+     * 320x480 but the screen size remained 1.5"x2" then the density would be
      * increased (probably to 1.5).
      *
      * @see #DENSITY_DEFAULT
@@ -109,7 +108,7 @@ public class DisplayMetrics {
 
     public DisplayMetrics() {
     }
-    
+
     public void setTo(DisplayMetrics o) {
         widthPixels = o.widthPixels;
         heightPixels = o.heightPixels;
@@ -119,7 +118,7 @@ public class DisplayMetrics {
         xdpi = o.xdpi;
         ydpi = o.ydpi;
     }
-    
+
     public void setToDefaults() {
         widthPixels = 0;
         heightPixels = 0;
@@ -141,7 +140,7 @@ public class DisplayMetrics {
         boolean expandable = compatibilityInfo.isConfiguredExpandable();
         boolean largeScreens = compatibilityInfo.isConfiguredLargeScreens();
         boolean xlargeScreens = compatibilityInfo.isConfiguredXLargeScreens();
-        
+
         // Note: this assume that configuration is updated before calling
         // updateMetrics method.
         if (!expandable) {
@@ -173,7 +172,6 @@ public class DisplayMetrics {
                 compatibilityInfo.setXLargeScreens(false);
             }
         }
-        
         if (!expandable || (!largeScreens && !xlargeScreens)) {
             // This is a larger screen device and the app is not 
             // compatible with large screens, so diddle it.
@@ -203,7 +201,6 @@ public class DisplayMetrics {
                     return;
                 }
             }
-            
             if (defaultWidth < widthPixels) {
                 // content/window's x offset in original pixels
                 widthPixels = defaultWidth;
@@ -212,7 +209,6 @@ public class DisplayMetrics {
                 heightPixels = defaultHeight;
             }
         }
-        
         if (compatibilityInfo.isScalingRequired()) {
             float invertedRatio = compatibilityInfo.applicationInvertedScale;
             density *= invertedRatio;

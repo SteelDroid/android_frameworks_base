@@ -138,16 +138,16 @@ public final class MathUtils {
 
     public static float tan(float angle) {
         return (float) Math.tan(angle);
-    }    
+    }
 
     public static float lerp(float start, float stop, float amount) {
         return start + (stop - start) * amount;
     }
-    
+
     public static float norm(float start, float stop, float value) {
         return (value - start) / (stop - start);
     }
-    
+
     public static float map(float minStart, float minStop, float maxStart, float maxStop, float value) {
         return maxStart + (maxStart - maxStop) * ((value - minStart) / (minStop - minStart));
     }
@@ -160,7 +160,7 @@ public final class MathUtils {
         if (howsmall >= howbig) return howsmall;
         return (int) (sRandom.nextFloat() * (howbig - howsmall) + howsmall);
     }
-    
+
     public static float random(float howbig) {
         return sRandom.nextFloat() * howbig;
     }

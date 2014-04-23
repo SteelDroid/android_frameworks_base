@@ -16,11 +16,6 @@
 
 package android.util;
 
-import com.android.internal.os.RuntimeInit;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 /**
  * @hide
  */
@@ -82,4 +77,3 @@ public final class Slog {
         return Log.println_native(Log.LOG_ID_SYSTEM, priority, tag, msg);
     }
 }
-

@@ -37,7 +37,6 @@ public class MonthDisplayHelper {
     private int mNumDaysInPrevMonth;
     private int mOffset;
 
-
     /**
      * @param year The year.
      * @param month The month.
@@ -62,11 +61,9 @@ public class MonthDisplayHelper {
         recalculate();
     }
 
-
     public MonthDisplayHelper(int year, int month) {
         this(year, month, Calendar.SUNDAY);
     }
-
 
     public int getYear() {
         return mCalendar.get(Calendar.YEAR);
@@ -75,7 +72,6 @@ public class MonthDisplayHelper {
     public int getMonth() {
         return mCalendar.get(Calendar.MONTH);
     }
-
 
     public int getWeekStartDay() {
         return mWeekStartDay;
@@ -96,7 +92,6 @@ public class MonthDisplayHelper {
         return mNumDaysInMonth;
     }
 
-
     /**
      * @return The offset from displaying everything starting on the very first
      *   box.  For example, if the calendar is set to display the first day of
@@ -105,7 +100,6 @@ public class MonthDisplayHelper {
     public int getOffset() {
         return mOffset;
     }
-
 
     /**
      * @param row Which row (0-5).
@@ -192,7 +186,6 @@ public class MonthDisplayHelper {
         }
         return true;
     }
-
 
     // helper method that recalculates cached values based on current month / year
     private void recalculate() {
