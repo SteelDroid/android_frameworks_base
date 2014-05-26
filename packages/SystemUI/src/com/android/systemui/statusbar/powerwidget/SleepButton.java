@@ -2,7 +2,6 @@ package com.android.systemui.statusbar.powerwidget;
 
 import com.android.systemui.R;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;

@@ -4,7 +4,6 @@ import com.android.systemui.R;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.provider.Settings;
 
@@ -62,4 +61,3 @@ public class AirplaneButton extends PowerButton {
                  Settings.System.AIRPLANE_MODE_ON,0) == 1;
     }
 }
-

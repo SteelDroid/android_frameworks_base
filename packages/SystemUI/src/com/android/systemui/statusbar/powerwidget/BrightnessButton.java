@@ -1,4 +1,3 @@
-
 package com.android.systemui.statusbar.powerwidget;
 
 import com.android.systemui.R;
@@ -9,11 +8,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Power;
 import android.os.PowerManager;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.preference.MultiSelectListPreference;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;

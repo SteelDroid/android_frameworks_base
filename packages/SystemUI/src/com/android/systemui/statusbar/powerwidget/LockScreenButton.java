@@ -75,4 +75,3 @@ public class LockScreenButton extends PowerButton {
         }
     }
 }
-

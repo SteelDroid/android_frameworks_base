@@ -172,5 +172,3 @@ public class ScreenTimeoutButton extends PowerButton {
                 CM_MODE_15_60_300);
     }
 }
-
-

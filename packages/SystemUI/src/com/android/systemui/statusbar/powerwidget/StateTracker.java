@@ -1,4 +1,3 @@
-
 package com.android.systemui.statusbar.powerwidget;
 
 import android.content.Context;

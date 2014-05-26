@@ -41,7 +41,6 @@ import com.android.systemui.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PowerWidget extends FrameLayout {
     private static final String TAG = "PowerWidget";
@@ -54,14 +53,14 @@ public class PowerWidget extends FrameLayout {
                              + BUTTON_DELIMITER + PowerButton.BUTTON_SOUND;
 
     private static final FrameLayout.LayoutParams WIDGET_LAYOUT_PARAMS = new FrameLayout.LayoutParams(
-                                        ViewGroup.LayoutParams.MATCH_PARENT, // width = match_parent
+                                        ViewGroup.LayoutParams.MATCH_PARENT, // width  = match_parent
                                         ViewGroup.LayoutParams.WRAP_CONTENT  // height = wrap_content
                                         );
 
     private static final LinearLayout.LayoutParams BUTTON_LAYOUT_PARAMS = new LinearLayout.LayoutParams(
-                                        ViewGroup.LayoutParams.WRAP_CONTENT, // width = wrap_content
+                                        ViewGroup.LayoutParams.WRAP_CONTENT, // width  = wrap_content
                                         ViewGroup.LayoutParams.MATCH_PARENT, // height = match_parent
-                                        1.0f                                    // weight = 1
+                                        1.0f                                 // weight = 1
                                         );
 
     private static final int LAYOUT_SCROLL_BUTTON_THRESHOLD = 6;
@@ -139,7 +138,6 @@ public class PowerWidget extends FrameLayout {
         // clear the button instances
         unloadAllButtons();
     }
-
 
     public void setupWidget() {
         destroyWidget();

@@ -4,12 +4,9 @@ import com.android.systemui.R;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 
 public abstract class MediaKeyEventButton extends PowerButton {
     private static final String TAG = "MediaKeyEventButton";

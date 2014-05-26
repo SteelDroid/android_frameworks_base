@@ -5,7 +5,6 @@ import com.android.systemui.R;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.provider.Settings;
 

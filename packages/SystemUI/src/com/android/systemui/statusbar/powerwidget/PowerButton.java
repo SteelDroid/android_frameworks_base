@@ -14,12 +14,9 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
-import android.util.Log;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.provider.Settings;
 import android.view.View;
-import android.provider.Settings;
 import java.util.ArrayList;
 import java.util.List;
 

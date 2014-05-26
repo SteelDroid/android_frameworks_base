@@ -43,7 +43,6 @@ public class AutoRotateButton extends PowerButton {
         }
     }
 
-
     @Override
     protected boolean handleLongClick(Context context) {
         Intent intent = new Intent("android.settings.DISPLAY_SETTINGS");
