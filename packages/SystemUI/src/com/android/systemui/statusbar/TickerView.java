@@ -20,7 +20,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextSwitcher;
 
-
 public class TickerView extends TextSwitcher
 {
     Ticker mTicker;
@@ -35,4 +34,3 @@ public class TickerView extends TextSwitcher
         mTicker.reflowText();
     }
 }
-

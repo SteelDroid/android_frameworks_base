@@ -16,7 +16,6 @@
 
 package com.android.systemui.statusbar;
 
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -25,9 +24,7 @@ import android.content.res.Resources;
 import android.text.format.DateFormat;
 
 import android.util.AttributeSet;
-import android.util.Slog;
 import android.widget.TextView;
-import android.view.MotionEvent;
 
 import java.util.Date;
 
@@ -91,4 +88,3 @@ public final class DateView extends TextView {
         }
     }
 }
-

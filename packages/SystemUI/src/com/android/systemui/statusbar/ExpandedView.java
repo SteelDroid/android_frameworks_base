@@ -18,13 +18,8 @@ package com.android.systemui.statusbar;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.Display;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.util.Slog;
-
 
 public class ExpandedView extends LinearLayout {
     StatusBarService mService;
@@ -70,8 +65,6 @@ public class ExpandedView extends LinearLayout {
         super.onLayout(changed, left, top, right, bottom);
         int height = bottom - top;
         if (height != mPrevHeight) {
-            //Slog.d(StatusBarService.TAG, "height changed old=" + mPrevHeight
-            //     + " new=" + height);
             mPrevHeight = height;
             mService.updateExpandedViewPos(StatusBarService.EXPANDED_LEAVE_ALONE);
         }

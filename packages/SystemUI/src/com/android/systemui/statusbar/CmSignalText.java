@@ -24,7 +24,6 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.telephony.PhoneStateListener;
 import android.telephony.SignalStrength;
-import android.telephony.TelephonyManager;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;

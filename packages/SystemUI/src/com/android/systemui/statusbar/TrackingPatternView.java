@@ -17,9 +17,7 @@
 package com.android.systemui.statusbar;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Slog;
 import android.view.View;
 import android.graphics.BitmapFactory;
 import android.graphics.Bitmap;
@@ -31,7 +29,7 @@ public class TrackingPatternView extends View {
     private Paint mPaint;
     private int mTextureWidth;
     private int mTextureHeight;
-    
+
     public TrackingPatternView(Context context, AttributeSet attrs) {
         super(context, attrs);
 

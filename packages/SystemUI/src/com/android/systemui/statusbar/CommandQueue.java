@@ -200,4 +200,3 @@ class CommandQueue extends IStatusBar.Stub {
         }
     }
 }
-

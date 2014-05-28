@@ -35,7 +35,7 @@ public class CmBatteryText extends TextView {
     private boolean mAttached;
 
     // battery style preferences
-    private static final int BATTERY_STYLE_PERCENT   = 1;
+    private static final int BATTERY_STYLE_PERCENT = 1;
     private int mStatusBarBattery;
 
     Handler mHandler;

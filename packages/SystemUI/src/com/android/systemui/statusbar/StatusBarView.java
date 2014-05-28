@@ -18,9 +18,6 @@
 package com.android.systemui.statusbar;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Canvas;
-import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,21 +25,13 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 
-import android.content.Intent;
-import android.os.RemoteException;
-import android.os.ServiceManager;
-import android.view.IWindowManager;
-import android.view.KeyEvent;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.util.Slog;
 import com.android.systemui.R;
 
 public class StatusBarView extends FrameLayout {
     private static final String TAG = "StatusBarView";
 
     static final int DIM_ANIM_TIME = 400;
-    
+
     StatusBarService mService;
     boolean mTracking;
     int mStartX, mStartY;

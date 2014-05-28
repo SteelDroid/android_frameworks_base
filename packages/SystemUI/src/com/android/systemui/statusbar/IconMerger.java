@@ -17,16 +17,13 @@
 package com.android.systemui.statusbar;
 
 import android.content.Context;
-import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Slog;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.android.internal.statusbar.StatusBarIcon;
 
 import com.android.systemui.R;
-
 
 public class IconMerger extends LinearLayout {
     private static final String TAG = "IconMerger";
@@ -93,7 +90,7 @@ public class IconMerger extends LinearLayout {
                     + " startIndex=" + startIndex);
             */
         }
-        
+
         // if it fits without the more icon, then hide the more icon and update fitLeft
         // so everything gets pushed left
         int adjust = 0;

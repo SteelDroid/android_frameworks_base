@@ -27,7 +27,6 @@ import android.util.Slog;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewDebug;
-import android.widget.FrameLayout;
 
 import com.android.internal.statusbar.StatusBarIcon;
 

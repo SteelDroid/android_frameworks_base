@@ -24,7 +24,6 @@ import android.text.StaticLayout;
 import android.text.Layout.Alignment;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.Slog;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -41,7 +40,7 @@ import com.android.systemui.R;
 
 public abstract class Ticker {
     private static final int TICKER_SEGMENT_DELAY = 3000;
-    
+
     private Context mContext;
     private Handler mHandler = new Handler();
     private ArrayList<Segment> mSegments = new ArrayList();
@@ -163,7 +162,6 @@ public abstract class Ticker {
         mPaint = text.getPaint();
     }
 
-
     void addEntry(StatusBarNotification n) {
         int initialCount = mSegments.size();
 
@@ -271,4 +269,3 @@ public abstract class Ticker {
     abstract void tickerDone();
     abstract void tickerHalting();
 }
-

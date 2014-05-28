@@ -29,7 +29,6 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.os.BatteryManager;
 import android.provider.Settings;
 import android.util.AttributeSet;

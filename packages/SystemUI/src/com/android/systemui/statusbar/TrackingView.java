@@ -23,7 +23,6 @@ import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-
 public class TrackingView extends LinearLayout {
     final Display mDisplay;
     StatusBarService mService;
@@ -36,7 +35,7 @@ public class TrackingView extends LinearLayout {
         mDisplay = ((WindowManager)context.getSystemService(
                 Context.WINDOW_SERVICE)).getDefaultDisplay();
     }
-    
+
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
