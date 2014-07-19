@@ -81,8 +81,8 @@
             android:singleLine="true"
             android:paddingRight="6dip"
             android:gravity="center_vertical|left"
-            android:textColor="#ff33B5E5"
-            android:textSize="18sp" />
+            android:textColor="#ffffffff"
+            android:textSize="19sp" />
 
         <!-- The following are button layouts for tablet style statusbar buttons
              Visibility is handled in config.xml by setting config_statusbar_buttons = "true" -->
