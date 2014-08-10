@@ -48,7 +48,6 @@ public abstract class PowerButton {
     public static final String BUTTON_MEDIA_PLAY_PAUSE = "toggleMediaPlayPause";
     public static final String BUTTON_MEDIA_PREVIOUS = "toggleMediaPrevious";
     public static final String BUTTON_MEDIA_NEXT = "toggleMediaNext";
-    public static final String BUTTON_WIMAX = "toggleWimax";
     public static final String BUTTON_UNKNOWN = "unknown";
 
     private static final Mode MASK_MODE = Mode.SCREEN;
@@ -83,20 +82,20 @@ public abstract class PowerButton {
                 boolean visible = Settings.System.getInt(cr,
                         Settings.System.EXPANDED_HIDE_INDICATOR, 0) != 1;
                 int colorMaskBase = Settings.System.getInt(cr,
-                        Settings.System.EXPANDED_VIEW_WIDGET_COLOR, 0xFF0033CC);
+                        Settings.System.EXPANDED_VIEW_WIDGET_COLOR, 0xFF33B5E5);
                 int colorMask;
 
                 mIndicatorView.setVisibility(visible ? View.VISIBLE : View.GONE);
 
                 switch (mState) {
                     case STATE_ENABLED:
-                        colorMask = (colorMaskBase & 0x00FFFFFF) | 0xA0000000;
+                        colorMask = (colorMaskBase & 0x00FFFFFF) | 0xFF000000;
                         break;
                     case STATE_DISABLED:
-                        colorMask = (colorMaskBase & 0x00FFFFFF) | 0x33000000;
+                        colorMask = (colorMaskBase & 0xFF000000) | 0xFF000000;
                         break;
                     default:
-                        colorMask = (colorMaskBase & 0x00FFFFFF) | 0x60000000;
+                        colorMask = (colorMaskBase & 0x00FFFFFF) | 0x00000000;
                         break;
                 }
 
