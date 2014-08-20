@@ -22,7 +22,6 @@ import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.ParseException;
 import android.net.Uri;
@@ -31,7 +30,6 @@ import android.net.http.SslCertificate;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
-import android.provider.OpenableColumns;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Surface;
@@ -195,11 +193,15 @@ class BrowserFrame extends Handler {
             // set WebCore native cache size
             ActivityManager am = (ActivityManager) context
                     .getSystemService(Context.ACTIVITY_SERVICE);
-            if (am.getMemoryClass() > 16) {
-                sJavaBridge.setCacheSize(SystemProperties.getInt("webkit.cache.size", 8 * 1024 * 1024));
-            } else {
-                sJavaBridge.setCacheSize(4 * 1024 * 1024);
+
+            int defCacheSize = am.getMemoryClass() > 16 ?
+                8388608 : 4194304; // 8 * 1024 * 1024 : 4 * 1024 * 1024
+            int cacheSize = SystemProperties.getInt("net.webkit.cache.size", defCacheSize);
+            if ((cacheSize < 0) || (cacheSize > (104857600))) {
+                cacheSize = defCacheSize;        // 100 * 1024 * 1024
             }
+            sJavaBridge.setCacheSize(cacheSize);
+
             // initialize CacheManager
             CacheManager.init(appContext);
             // create CookieSyncManager with current Context
@@ -299,7 +301,7 @@ class BrowserFrame extends Handler {
         if (data == null) {
             data = "";
         }
-        
+
         // Setup defaults for missing values. These defaults where taken from
         // WebKit's WebFrame.mm
         if (baseUrl == null || baseUrl.length() == 0) {
