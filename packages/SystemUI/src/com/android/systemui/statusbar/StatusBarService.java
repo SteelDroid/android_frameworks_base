@@ -198,7 +198,7 @@ public class StatusBarService extends Service implements CommandQueue.Callbacks 
     // for disabling the status bar
     int mDisabled = 0;
 
-    // weather or not to show status bar on bottom
+    // whether or not to show status bar on bottom
     boolean mBottomBar;
     boolean mButtonsLeft;
     boolean mDeadZone;
@@ -988,7 +988,6 @@ public class StatusBarService extends Service implements CommandQueue.Callbacks 
         }
 
         mExpanded = true;
-        mStatusBarView.updateQuickNaImage();
         makeExpandedVisible();
         updateExpandedViewPos(EXPANDED_FULL_OPEN);
 
@@ -1022,7 +1021,6 @@ public class StatusBarService extends Service implements CommandQueue.Callbacks 
             return;
         }
         mExpanded = false;
-        mStatusBarView.updateQuickNaImage();
     }
 
     void doAnimation() {
@@ -1220,16 +1218,13 @@ public class StatusBarService extends Service implements CommandQueue.Callbacks 
                 int x = (int)event.getRawX();
 
                 final int edgeBorder = mEdgeBorder;
-                int edgeLeft = mButtonsLeft ? mStatusBarView.getSoftButtonsWidth() : 0;
-                int edgeRight = mButtonsLeft ? 0 : mStatusBarView.getSoftButtonsWidth();
 
                 final int w = mDisplay.getWidth();
                 final int deadLeft = w / 2 - w / 4;  // left side of the dead zone
                 final int deadRight = w / 2 + w / 4; // right side of the dead zone
 
-                boolean expandedHit = (mExpanded && (x >= edgeBorder && x < w - edgeBorder));
-                boolean collapsedHit = (!mExpanded && (x >= edgeBorder + edgeLeft && x < w - edgeBorder - edgeRight)
-                                && (!mDeadZone || mDeadZone && (x < deadLeft || x > deadRight)));
+                boolean expandedHit = mExpanded;
+                boolean collapsedHit = (!mExpanded && (!mDeadZone || mDeadZone && (x < deadLeft || x > deadRight)));
 
                 if (expandedHit || collapsedHit) {
                     prepareTracking(y, !mExpanded);// opening if we're not already fully visible
@@ -1380,8 +1375,6 @@ public class StatusBarService extends Service implements CommandQueue.Callbacks 
         if (n.notification.tickerText != null && mStatusBarView.getWindowToken() != null) {
             if (0 == (mDisabled & (StatusBarManager.DISABLE_NOTIFICATION_ICONS
                             | StatusBarManager.DISABLE_NOTIFICATION_TICKER))) {
-                if(!mHasSoftButtons || mStatusBarView.getSoftButtonsWidth() == 0)
-                    mTicker.addEntry(n);
             }
         }
     }
