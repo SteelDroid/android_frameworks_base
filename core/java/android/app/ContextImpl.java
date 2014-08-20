@@ -80,6 +80,7 @@ import android.net.IThrottleManager;
 import android.net.Uri;
 import android.net.wifi.IWifiManager;
 import android.net.wifi.WifiManager;
+import android.nfc.NfcManager;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.DropBoxManager;
@@ -212,6 +213,7 @@ class ContextImpl extends Context {
     private DevicePolicyManager mDevicePolicyManager = null;
     private UiModeManager mUiModeManager = null;
     private DownloadManager mDownloadManager = null;
+    private NfcManager mNfcManager = null;
 
     private final Object mSync = new Object();
 
@@ -1006,6 +1008,8 @@ class ContextImpl extends Context {
             return getUiModeManager();
         } else if (DOWNLOAD_SERVICE.equals(name)) {
             return getDownloadManager();
+        } else if (NFC_SERVICE.equals(name)) {
+            return getNfcManager();
         }
 
         return null;
@@ -1252,6 +1256,15 @@ class ContextImpl extends Context {
             }
         }
         return mDownloadManager;
+    }
+
+    private NfcManager getNfcManager() {
+        synchronized (mSync) {
+            if (mNfcManager == null) {
+                mNfcManager = new NfcManager(this);
+            }
+        }
+        return mNfcManager;
     }
 
     @Override
