@@ -58,7 +58,7 @@
              color, typeface, size, and style. -->
         <attr name="textAppearanceInverse" format="reference" />
 
-        <!-- The most prominent text color.  -->
+        <!-- The most prominent text color. -->
         <attr name="textColorPrimary" format="reference|color" />
         <!-- Secondary text color. -->
         <attr name="textColorSecondary" format="reference|color" />
@@ -116,7 +116,6 @@
         <attr name="textAppearanceSearchResultTitle" format="reference" />
         <!-- Text color, typeface, size, and style for system search result subtitle. Defaults to primary inverse text color. -->
         <attr name="textAppearanceSearchResultSubtitle" format="reference" />
-
 
         <!-- Text color, typeface, size, and style for the text inside of a button. -->
         <attr name="textAppearanceButton" format="reference" />
@@ -402,7 +401,7 @@
         <attr name="webViewStyle" format="reference" />
         <!-- Default style for drop down items. -->
         <attr name="dropDownItemStyle" format="reference" />
-         <!-- Default style for spinner drop down items. -->
+        <!-- Default style for spinner drop down items. -->
         <attr name="spinnerDropDownItemStyle" format="reference" />
         <!-- Default style for drop down hints. -->
         <attr name="dropDownHintAppearance" format="reference" />
@@ -1023,7 +1022,7 @@
         <attr name="windowShowAnimation" format="reference" />
         <!-- The animation used when a window is going from VISIBLE to INVISIBLE. -->
         <attr name="windowHideAnimation" format="reference" />
-        
+
         <!--  When opening a new activity, this is the animation that is
               run on the next activity (which is entering the screen). -->
         <attr name="activityOpenEnterAnimation" format="reference" />
@@ -1064,7 +1063,7 @@
               animation that is run on the top activity of the current task
               (which is exiting the screen). -->
         <attr name="taskToBackExitAnimation" format="reference" />
-        
+
         <!--  When opening a new activity that shows the wallpaper, while
               currently not showing the wallpaper, this is the animation that
               is run on the new wallpaper activity (which is entering the screen). -->
@@ -1081,7 +1080,7 @@
               currently showing the wallpaper, this is the animation that
               is run on the old wallpaper activity (which is exiting the screen). -->
         <attr name="wallpaperCloseExitAnimation" format="reference" />
-        
+
         <!--  When opening a new activity that is on top of the wallpaper
               when the current activity is also on top of the wallpaper,
               this is the animation that is run on the new activity
@@ -1229,11 +1228,11 @@
              set, else it will be false. -->
         <attr name="isScrollContainer" format="boolean" />
 
-          <!-- Defines whether to fade out scrollbars when they are not in use. -->
-         <attr name="fadeScrollbars" format="boolean" />
-         <!-- Defines the delay in milliseconds that a scrollbar takes to fade out. -->
-         <attr name="scrollbarFadeDuration" format="integer" />
-         <!-- Defines the delay in milliseconds that a scrollbar waits before fade out. -->
+        <!-- Defines whether to fade out scrollbars when they are not in use. -->
+        <attr name="fadeScrollbars" format="boolean" />
+        <!-- Defines the delay in milliseconds that a scrollbar takes to fade out. -->
+        <attr name="scrollbarFadeDuration" format="integer" />
+        <!-- Defines the delay in milliseconds that a scrollbar waits before fade out. -->
         <attr name="scrollbarDefaultDelayBeforeFade" format="integer" />
         <!-- Sets the width of vertical scrollbars and height of horizontal scrollbars. -->
         <attr name="scrollbarSize" format="dimension" />
@@ -1461,8 +1460,8 @@
          layout managers.  These attributes are specified with the rest of
          a view's normal attributes (such as {@link android.R.attr#background},
          but will be parsed by the view's parent and ignored by the child.
-        <p>The values defined here correspond to the base layout attribute
-        class {@link android.view.ViewGroup.LayoutParams}. -->
+         <p>The values defined here correspond to the base layout attribute
+         class {@link android.view.ViewGroup.LayoutParams}. -->
     <declare-styleable name="ViewGroup_Layout">
         <!-- Specifies the basic width of the view.  This is a required attribute
              for any view inside of a containing layout manager.  Its value may
@@ -1502,8 +1501,8 @@
          These attributes are specified with the rest of
          a view's normal attributes (such as {@link android.R.attr#background},
          but will be parsed by the view's parent and ignored by the child.
-        <p>The values defined here correspond to the base layout attribute
-        class {@link android.view.ViewGroup.MarginLayoutParams}. -->
+         <p>The values defined here correspond to the base layout attribute
+         class {@link android.view.ViewGroup.MarginLayoutParams}. -->
     <declare-styleable name="ViewGroup_MarginLayout">
         <attr name="layout_width" />
         <attr name="layout_height" />
@@ -1546,7 +1545,7 @@
     <eat-comment />
 
     <declare-styleable name="AbsListView">
-         <!-- Drawable used to indicate the currently selected item in the list. -->
+        <!-- Drawable used to indicate the currently selected item in the list. -->
         <attr name="listSelector" format="color|reference" />
         <!-- When set to true, the selector will be drawn over the selected item.
              Otherwise the selector is drawn behind the selected item. The default
@@ -1916,7 +1915,7 @@
              value "*" instead. Note that a column can be marked stretchable
              and shrinkable at the same time. -->
         <attr name="stretchColumns" format="string" />
-       <!-- The zero-based index of the columns to shrink. The column indices
+        <!-- The zero-based index of the columns to shrink. The column indices
              must be separated by a comma: 1, 2, 5. Illegal and duplicate
              indices are ignored. You can shrink all columns by using the
              value "*" instead. Note that a column can be marked stretchable
@@ -2939,7 +2938,7 @@
          <li>"state_rect"
          <li>"state_grow"
          <li>"state_move"
-         </ul>  -->
+         </ul> -->
     <declare-styleable name="DrawableStates">
         <!--  State value for {@link android.graphics.drawable.StateListDrawable StateListDrawable}.-->
         <attr name="state_focused" format="boolean" />
@@ -3574,11 +3573,11 @@
     <!-- AppWidget package class attributes -->
     <!-- =============================== -->
     <eat-comment />
-    
+
     <!-- Use <code>appwidget-provider</code> as the root tag of the XML resource that
          describes an AppWidget provider.  See {@link android.appwidget android.appwidget}
          package for more info.
-     -->
+    -->
     <declare-styleable name="AppWidgetProviderInfo">
         <!-- Minimum width of the AppWidget. -->
         <attr name="minWidth"/>
@@ -3597,7 +3596,7 @@
     <!-- App package class attributes -->
     <!-- =============================== -->
     <eat-comment />
-    
+
     <!-- Use <code>device-admin</code> as the root tag of the XML resource that
          describes a
          {@link android.app.admin.DeviceAdminReceiver}, which is
@@ -3637,10 +3636,10 @@
     <!-- Accounts package class attributes -->
     <!-- =============================== -->
     <eat-comment />
-    
+
     <!-- Use <code>account-authenticator</code> as the root tag of the XML resource that
          describes an account authenticator.
-     -->
+    -->
     <declare-styleable name="AccountAuthenticator">
         <!-- The account type this authenticator handles. -->
         <attr name="accountType" format="string"/>
@@ -3658,10 +3657,10 @@
     <!-- Accounts package class attributes -->
     <!-- =============================== -->
     <eat-comment />
-    
+
     <!-- Use <code>account-authenticator</code> as the root tag of the XML resource that
          describes an account authenticator.
-     -->
+    -->
     <declare-styleable name="SyncAdapter">
         <!-- the authority of a content provider. -->
         <attr name="contentAuthority" format="string"/>
@@ -3674,7 +3673,7 @@
     <!-- Contacts meta-data attributes -->
     <!-- =============================== -->
     <eat-comment />
-    
+
     <!-- TODO: remove this deprecated styleable. -->
     <eat-comment />
     <declare-styleable name="Icon">

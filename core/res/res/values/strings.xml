@@ -139,7 +139,6 @@
     <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call or in general. -->
     <string name="CLIRDefaultOffNextCallOff">Caller ID defaults to not restricted. Next call: Not restricted</string>
 
-
     <!-- Displayed to tell the user that caller ID is not provisioned for their SIM. -->
     <string name="serviceNotProvisioned">Service not provisioned.</string>
     <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
@@ -155,11 +154,11 @@
     <string name="RestrictedOnNormal">Voice service is blocked.</string>
     <!-- Displayed to tell the user that all emergency and normal voice services are blocked by access control. -->
     <string name="RestrictedOnAllVoice">All Voice services are blocked.</string>
-    <!-- Displayed to tell the user that sms service is blocked by access control. -->
+    <!-- Displayed to tell the user that SMS service is blocked by access control. -->
     <string name="RestrictedOnSms">SMS service is blocked.</string>
     <!-- Displayed to tell the user that voice/data service is blocked by access control. -->
     <string name="RestrictedOnVoiceData">Voice/Data services are blocked.</string>
-    <!-- Displayed to tell the user that voice and sms service are blocked by access control. -->
+    <!-- Displayed to tell the user that voice and SMS service are blocked by access control. -->
     <string name="RestrictedOnVoiceSms">Voice/SMS services are blocked.</string>
     <!-- Displayed to tell the user that all service is blocked by access control. -->
     <string name="RestrictedOnAll">All Voice/Data/SMS services are blocked.</string>
@@ -198,7 +197,6 @@
     <string name="roamingText11">Roaming Banner On</string>
     <string name="roamingText12">Roaming Banner Off</string>
     <string name="roamingTextSearching">Searching for Service</string>
-
 
     <!--
         {0} is one of "bearerServiceCode*"
@@ -275,7 +273,6 @@
 
     <!-- If MMS discovers there isn't much space left on the device, it will show a toast with this message. -->
     <string name="low_memory">Phone storage is full! Delete some files to free space.</string>
-
 
     <!-- Display name for any time a piece of data refers to the owner of the phone. For example, this could be used in place of the phone's phone number. -->
     <string name="me">Me</string>
@@ -1204,6 +1201,7 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_changeWifiMulticastState">allow Wi-Fi Multicast
       reception</string>
+
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_changeWifiMulticastState">Allows an application to
       receive packets not directly addressed to your device.  This can be
@@ -1554,7 +1552,7 @@
     <string name="lockscreen_pattern_wrong">Sorry, try again</string>
 
     <!-- When the lock screen is showing and the phone plugged in, and the battery
-         is not fully charged, show the current charge %.  -->
+         is not fully charged, show the current charge %. -->
     <string name="lockscreen_plugged_in">Charging (<xliff:g id="number">%d</xliff:g><xliff:g id="percent">%%</xliff:g>)</string>
     <string name="lockscreen_discharging">Battery (<xliff:g id="number">%d</xliff:g><xliff:g id="percent">%%</xliff:g>)</string>
     <!-- When the lock screen is showing, the phone is plugged in and the battery is fully
@@ -1580,7 +1578,6 @@
     <!-- When the user inserts a sim card from an unsupported network, it becomes network
          locked -->
     <string name="lockscreen_network_locked_message">Network locked</string>
-
 
     <!-- When the user enters a wrong sim pin too many times, it becomes
          PUK locked (Pin Unlock Kode) -->
@@ -1901,7 +1898,6 @@
     <!-- Appened to express the value is this unit of time. -->
     <string name="years">years</string>
 
-
     <!-- Title for error alert when a video cannot be played.  it can be used by any app. -->
     <string name="VideoView_error_title">Cannot play video</string>
     <!-- Text for error alert when a video container is not valid for progressive download/playback. -->
@@ -1911,13 +1907,9 @@
     <!-- Button to close error alert when a video cannot be played -->
     <string name="VideoView_error_button">OK</string>
 
-
-
-
     <!-- Format indicating a relative expression and time.
          Example: "4 hours ago, 11:00 am" -->
     <string name="relative_time">"<xliff:g id="date" example="4 hours ago">%1$s</xliff:g>, <xliff:g id="time" example="11:00 am">%2$s</xliff:g>"</string>
-
 
     <!-- Quoted name for 12pm, lowercase -->
     <string name="noon">"noon"</string>
@@ -1927,16 +1919,6 @@
     <string name="midnight">"midnight"</string>
     <!-- Quoted name for 12am, uppercase first letter -->
     <string name="Midnight">"Midnight"</string>
-
-
-
-
-
-
-
-
-
-
 
     <!-- Format string for durations like "01:23" (1 minute, 23 seconds) -->
     <string name="elapsed_time_short_format_mm_ss"><xliff:g id="minutes" example="1">%1$02d</xliff:g>:<xliff:g id="seconds" example="23">%2$02d</xliff:g></string>
@@ -1953,7 +1935,7 @@
     <!-- Item on EditText context menu. This action is used to start selecting text in the edit field. [CHAR LIMIT=20] -->
     <string name="selectText">Select word</string>
 
-    <!-- Item on EditText context menu.  This action is used to cut selected the text into the clipboard.  -->
+    <!-- Item on EditText context menu.  This action is used to cut selected the text into the clipboard. -->
     <string name="cut">Cut</string>
 
     <!-- Item on EditText context menu. This action is used to cut selected the text into the clipboard. -->
@@ -2306,7 +2288,6 @@
     <!-- Shown in the tutorial for tap twice for zoom control. -->
     <string name="tutorial_double_tap_to_zoom_message_short">Tap twice for zoom control</string>
 
-
     <!-- Shown in gadget hosts (e.g. the home screen) when there was an error inflating
     the gadget. -->
     <string name="gadget_host_error_inflating">Error inflating widget</string>
@@ -2332,7 +2313,6 @@
     <!-- Strings for search suggestions. These are going here because they are referenced by both
          ContactsProvider and GoogleContactsProvider -->
     <skip />
-
 
     <!-- This string appears (on two lines) when you type a number into contacts search, to let you dial the phone number you typed.  The first line will be in bigger type than the second. -->
     <string name="dial_number_using">Dial number\nusing <xliff:g id="number" example="555">%s</xliff:g></string>

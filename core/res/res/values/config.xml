@@ -22,7 +22,7 @@
      for different hardware and product builds. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Component to be used as the status bar service.  Must implement the IStatusBar
-         interface.  This name is in the ComponentName flattened format (package/class)  -->
+         interface.  This name is in the ComponentName flattened format (package/class) -->
     <string name="config_statusBarComponent" translatable="false">com.android.systemui/com.android.systemui.statusbar.StatusBarService</string>
 
     <!-- Do not translate. Defines the slots for the right-hand side icons.  That is to say, the
@@ -55,20 +55,20 @@
          manager will disable alpha trasformation in animations where not
          strictly needed. -->
     <bool name="config_sf_limitedAlpha">false</bool>
-    
+
     <!-- Flag indicating whether the surface flinger is inefficient
          at performing a blur.  Used by parts of the UI to turn off
          the blur effect where it isn't worth the performance hit. -->
     <bool name="config_sf_slowBlur">false</bool>
-    
+
     <!-- The duration (in milliseconds) of a short animation. -->
     <integer name="config_shortAnimTime">150</integer>
     <integer name="config_activityShortDur">150</integer>
     <integer name="config_activityDefaultDur">220</integer>
-    
+
     <!-- The duration (in milliseconds) of a medium-length animation. -->
     <integer name="config_mediumAnimTime">300</integer>
-    
+
     <!-- The duration (in milliseconds) of a long animation. -->
     <integer name="config_longAnimTime">400</integer>
 
@@ -92,7 +92,7 @@
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->
     <!-- An Array of "[Connection name],[ConnectivityManager connection type],
-         [associated radio-type],[priority]  -->
+         [associated radio-type],[priority] -->
     <string-array name="networkAttributes" translatable="false">
         <item>"wifi,1,1,1"</item>
         <item>"mobile,0,0,0"</item>
@@ -105,7 +105,7 @@
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->
     <!-- An Array of "[ConnectivityManager connectionType],
-                      [# simultaneous connection types]"  -->
+                      [# simultaneous connection types]" -->
     <string-array name="radioAttributes" translatable="false">
         <item>"1,1"</item>
         <item>"0,1"</item>
@@ -145,12 +145,11 @@
          note that empty fields can be ommitted: "name,apn,,,,,,,,,310,260,,DUN" -->
     <string name="config_tether_apndata" translatable="false"></string>
 
-
     <!-- Flag indicating whether the keyguard should be bypassed when
          the slider is open.  This can be set or unset depending how easily
          the slider can be opened (for example, in a pocket or purse). -->
     <bool name="config_bypass_keyguard_if_slider_open">true</bool>
-    
+
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">false</bool>
@@ -160,10 +159,10 @@
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">false</bool>
-    
+
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">true</bool>
-    
+
     <!-- XXXXXX END OF RESOURCES USING WRONG NAMING CONVENTION -->
 
     <!-- If true, the screen can be rotated via the accelerometer in all 4
@@ -225,7 +224,7 @@
         <item>20</item>
         <item>21</item>
     </integer-array>
-    
+
     <!-- Vibrator pattern for feedback about touching a virtual key -->
     <integer-array name="config_virtualKeyVibePattern">
         <item>0</item>
@@ -352,7 +351,7 @@
          This feature should be disabled for most devices. -->
     <integer name="config_virtualKeyQuietTimeMillis">0</integer>
 
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
+    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
          specified -->
     <string name="default_wallpaper_component" translatable="false">@null</string>
 
@@ -497,10 +496,10 @@
     dont carry in pockets -->
     <bool name="cm_default_disable_lockscreen">false</bool>
 
-    <!--  option only available for devices with soft buttons.
+    <!-- option only available for devices with soft buttons.
     when enabled, fullscreen apps show the status bar. status
     bar then gets an adition hide button to switch to real
-    fullscreen  -->
+    fullscreen -->
     <bool name="cm_default_disable_fullscreen">false</bool>
 
     <!-- toggles which button to use to unhide the status bar
@@ -516,13 +515,13 @@
     keys are disabled -->
     <bool name="cm_default_extend_power_menu">false</bool>
 
-    <!--  toggles which buttons to show on extended power menu.
+    <!-- toggles which buttons to show on extended power menu.
     ignored if power menu disabled -->
     <bool name="cm_default_power_menu_home">true</bool>
     <bool name="cm_default_power_menu_menu">true</bool>
     <bool name="cm_default_power_menu_back">true</bool>
 
-    <!--  toggles behavior of volume buttons. default (false) triggers
+    <!-- toggles behavior of volume buttons. default (false) triggers
     volume change when pressing, user action when long-pressing. enabling
     (true) this option reverses this behavior -->
     <bool name="cm_default_reverse_volume_behavior">false</bool>
