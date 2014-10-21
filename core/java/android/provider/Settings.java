@@ -3703,13 +3703,6 @@ public final class Settings {
         public static final String DATA_TO_WIFI_CONNECT_TYPE = "data_to_wifi_connect_type";
 
          /**
-         * Holds the text for the Carrier label. An empty string
-         * will bring the default text back.
-         * @hide
-         */
-        public static final String NOTIFICATION_CUSTOM_CARRIER_LABEL = "notification_custom_carrier_label";
-
-        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5884,6 +5877,15 @@ public final class Settings {
          * @hide
          */
         public static final String PROTECTED_COMPONENTS = "protected_components";
+
+        /**
+         * The global recents long press activity chosen by the user.
+         * This setting is stored as a flattened component name as
+         * per {@link ComponentName#flattenToString()}.
+         *
+         * @hide
+         */
+        public static final String RECENTS_LONG_PRESS_ACTIVITY = "recents_long_press_activity";
 
         /**
          * This are the settings to be backed up.
