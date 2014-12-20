@@ -23,6 +23,9 @@
     android:orientation="vertical"
     android:focusable="true"
     android:descendantFocusability="afterDescendants"
+    android:gravity="center_horizontal"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     >
 
     <LinearLayout
