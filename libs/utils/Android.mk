@@ -50,7 +50,6 @@ commonSources:= \
 	../../tools/aapt/ZipEntry.cpp \
 	misc.cpp
 
-
 # For the host
 # =====================================================
 
@@ -77,12 +76,9 @@ endif
 
 include $(BUILD_HOST_STATIC_LIBRARY)
 
-
-
 # For the device
 # =====================================================
 include $(CLEAR_VARS)
-
 
 # we have the common sources, plus some device-specific stuff
 LOCAL_SRC_FILES:= \
@@ -126,7 +122,6 @@ LOCAL_SRC_FILES := $(commonSources) BackupData.cpp BackupHelpers.cpp
 include $(BUILD_STATIC_LIBRARY)
 endif
 endif
-
 
 # Include subdirectory makefiles
 # ============================================================

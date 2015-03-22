@@ -81,11 +81,11 @@ Asset::Asset(void)
     mNext = mPrev = NULL;
     if (gTail == NULL) {
         gHead = gTail = this;
-  	} else {
-  	    mPrev = gTail;
-  	    gTail->mNext = this;
-  	    gTail = this;
-  	}
+        } else {
+            mPrev = gTail;
+            gTail->mNext = this;
+            gTail = this;
+        }
     //LOGI("Creating Asset %p #%d\n", this, gCount);
 }
 
@@ -150,7 +150,6 @@ Asset::~Asset(void)
     return pAsset;
 }
 
-
 /*
  * Create a new Asset from a compressed file on disk.  There is a fair chance
  * that the file doesn't actually exist.
@@ -209,7 +208,6 @@ Asset::~Asset(void)
     pAsset->mAccessMode = mode;
     return pAsset;
 }
-
 
 #if 0
 /*
@@ -287,7 +285,6 @@ Asset::~Asset(void)
     return pAsset;
 }
 
-
 /*
  * Do generic seek() housekeeping.  Pass in the offset/whence values from
  * the seek request, along with the current chunk offset and the chunk
@@ -324,7 +321,6 @@ off_t Asset::handleSeek(off_t offset, int whence, off_t curPosn, off_t maxPosn)
 
     return newOffset;
 }
-
 
 /*
  * ===========================================================================
@@ -877,4 +873,3 @@ bail:
     delete[] buf;
     return mBuf;
 }
-

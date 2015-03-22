@@ -167,7 +167,6 @@ BackupDataWriter::SetKeyPrefix(const String8& keyPrefix)
     m_keyPrefix = keyPrefix;
 }
 
-
 BackupDataReader::BackupDataReader(int fd)
     :m_fd(fd),
      m_done(false),
@@ -363,6 +362,5 @@ BackupDataReader::skip_padding()
     }
     return NO_ERROR;
 }
-
 
 } // namespace android

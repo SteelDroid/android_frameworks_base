@@ -111,7 +111,6 @@ int countArgv(const char* const argv[])
     return count;
 }
 
-
 #include <stdio.h>
 /*
  * Get a file's type.
@@ -139,12 +138,12 @@ FileType getFileType(const char* fileName)
             return kFileTypeBlockDev;
         else if (S_ISFIFO(sb.st_mode))
             return kFileTypeFifo;
-#ifdef HAVE_SYMLINKS            
+#ifdef HAVE_SYMLINKS
         else if (S_ISLNK(sb.st_mode))
             return kFileTypeSymlink;
         else if (S_ISSOCK(sb.st_mode))
             return kFileTypeSocket;
-#endif            
+#endif
         else
             return kFileTypeUnknown;
     }
@@ -182,4 +181,3 @@ unsigned int roundUpPower2(unsigned int val)
 }
 
 }; // namespace android
-

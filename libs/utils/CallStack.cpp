@@ -35,10 +35,8 @@
 #include <utils/CallStack.h>
 #include <utils/threads.h>
 
-
 /*****************************************************************************/
 namespace android {
-
 
 typedef struct {
     size_t count;
@@ -187,7 +185,7 @@ public:
             milist = next;
         }
     }
-    
+
     static const char *mapAddressToName(const void* pc, const char* def,
             void const** start) 
     {
@@ -268,7 +266,6 @@ const void* CallStack::operator [] (int index) const {
         return 0;
     return mStack[index];
 }
-
 
 void CallStack::clear()
 {

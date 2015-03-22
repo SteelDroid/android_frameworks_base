@@ -23,7 +23,6 @@
 
 using namespace android;
 
-
 /*
  * Find a matching entry in a vector of FileInfo.  Because it's sorted, we
  * can use a binary search.
@@ -63,4 +62,3 @@ using namespace android;
     return -1;
 #endif
 }
-

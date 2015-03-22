@@ -11,4 +11,3 @@ the details.
 The ultimate goal is *not* to create a super-duper platform abstraction
 layer.  The goal is to provide an optimized solution for Linux with
 reasonable implementations for other platforms.
-

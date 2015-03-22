@@ -56,7 +56,6 @@ static Asset* const kExcludedAsset = (Asset*) 0xd000000d;
 
 static volatile int32_t gCount = 0;
 
-
 /*
  * ===========================================================================
  *      AssetManager
@@ -124,7 +123,7 @@ bool AssetManager::addAssetPath(const String8& path, void** cookie, bool asSkin)
             return true;
         }
     }
-    
+
     LOGV("In %p Asset %s path: %s", this,
          ap.type == kFileTypeDirectory ? "dir" : "zip", ap.path.string());
 
@@ -187,7 +186,7 @@ void AssetManager::setLocaleLocked(const char* locale)
         delete[] mLocale;
     }
     mLocale = strdupNew(locale);
-    
+
     updateResourceParamsLocked();
 }
 
@@ -270,7 +269,6 @@ Asset* AssetManager::open(const char* fileName, AccessMode mode)
 
     LOG_FATAL_IF(mAssetPaths.size() == 0, "No assets added to AssetManager");
 
-
     if (mCacheMode != CACHE_OFF && !mCacheValid)
         loadFileNameCacheLocked();
 
@@ -311,7 +309,6 @@ Asset* AssetManager::openNonAsset(const char* fileName, AccessMode mode)
 
     LOG_FATAL_IF(mAssetPaths.size() == 0, "No assets added to AssetManager");
 
-
     if (mCacheMode != CACHE_OFF && !mCacheValid)
         loadFileNameCacheLocked();
 
@@ -344,7 +341,6 @@ Asset* AssetManager::openNonAsset(void* cookie, const char* fileName, AccessMode
     AutoMutex _l(mLock);
 
     LOG_FATAL_IF(mAssetPaths.size() == 0, "No assets added to AssetManager");
-
 
     if (mCacheMode != CACHE_OFF && !mCacheValid)
         loadFileNameCacheLocked();
@@ -641,7 +637,7 @@ Asset* AssetManager::openInLocaleVendorLocked(const char* fileName, AccessMode m
             /* look at the filesystem on disk */
             String8 path(createPathNameLocked(ap, locale, vendor));
             path.appendPath(fileName);
-    
+
             String8 excludeName(path);
             excludeName.append(kExcludeExtension);
             if (::getFileType(excludeName.string()) != kFileTypeNonexistent) {
@@ -649,28 +645,28 @@ Asset* AssetManager::openInLocaleVendorLocked(const char* fileName, AccessMode m
                 //printf("+++ excluding '%s'\n", (const char*) excludeName);
                 return kExcludedAsset;
             }
-    
+
             pAsset = openAssetFromFileLocked(path, mode);
-    
+
             if (pAsset == NULL) {
                 /* try again, this time with ".gz" */
                 path.append(".gz");
                 pAsset = openAssetFromFileLocked(path, mode);
             }
-    
+
             if (pAsset != NULL)
                 pAsset->setAssetSource(path);
         } else {
             /* find in cache */
             String8 path(createPathNameLocked(ap, locale, vendor));
             path.appendPath(fileName);
-    
+
             AssetDir::FileInfo tmpInfo;
             bool found = false;
-    
+
             String8 excludeName(path);
             excludeName.append(kExcludeExtension);
-    
+
             if (mCache.indexOf(excludeName) != NAME_NOT_FOUND) {
                 /* go no farther */
                 //printf("+++ Excluding '%s'\n", (const char*) excludeName);
@@ -884,8 +880,6 @@ Asset* AssetManager::openAssetFromZipLocked(const ZipFileRO* pZipFile,
 
     return pAsset;
 }
-
-
 
 /*
  * Open a directory in the asset namespace.
@@ -1309,7 +1303,6 @@ bool AssetManager::scanAndMergeZipLocked(SortedVector<AssetDir::FileInfo>* pMerg
     return true;
 }
 
-
 /*
  * Merge two vectors of FileInfo.
  *
@@ -1405,7 +1398,6 @@ void AssetManager::mergeInfoLocked(SortedVector<AssetDir::FileInfo>* pMergedInfo
     }
 #endif
 }
-
 
 /*
  * Load all files into the file name cache.  We want to do this across
@@ -1557,7 +1549,6 @@ void AssetManager::purgeFileNameCacheLocked(void)
  *      AssetManager::SharedZip
  * ===========================================================================
  */
-
 
 Mutex AssetManager::SharedZip::gLock;
 DefaultKeyedVector<String8, wp<AssetManager::SharedZip> > AssetManager::SharedZip::gOpen;

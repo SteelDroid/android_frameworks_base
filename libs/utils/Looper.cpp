@@ -20,7 +20,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-
 namespace android {
 
 #ifdef LOOPER_USES_EPOLL
