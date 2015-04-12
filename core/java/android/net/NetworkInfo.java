@@ -97,7 +97,7 @@ public class NetworkInfo implements Parcelable {
         stateMap.put(DetailedState.DISCONNECTED, State.DISCONNECTED);
         stateMap.put(DetailedState.FAILED, State.DISCONNECTED);
     }
-    
+
     private int mNetworkType;
     private int mSubtype;
     private String mTypeName;
@@ -392,12 +392,4 @@ public class NetworkInfo implements Parcelable {
             }
         };
 
-    /**
-     * HACK! Get an empty NetworkInfo object for WIMAX stub
-     * @hide
-     */
-    public static final NetworkInfo getEmptyWimaxNetworkInfo() {
-        return new NetworkInfo(ConnectivityManager.TYPE_WIMAX, 0, "", "");
-    }
-    
 }
