@@ -17,6 +17,8 @@
 package android.media;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -106,6 +108,9 @@ public class ExifInterface {
     // they cannot keep state in the native code across function calls). We
     // use sLock to serialize the accesses.
     private static Object sLock = new Object();
+
+    // Pattern to check non zero timestamp
+    private static final Pattern sNonZeroTimePattern = Pattern.compile(".*[1-9].*");
 
     /**
      * Reads Exif tags from the specified JPEG file.
@@ -325,7 +330,8 @@ public class ExifInterface {
      */
     public long getDateTime() {
         String dateTimeString = mAttributes.get(TAG_DATETIME);
-        if (dateTimeString == null) return -1;
+        if (dateTimeString == null
+                || !sNonZeroTimePattern.matcher(dateTimeString).matches()) return -1;
 
         ParsePosition pos = new ParsePosition(0);
         try {
@@ -345,7 +351,9 @@ public class ExifInterface {
     public long getGpsDateTime() {
         String date = mAttributes.get(TAG_GPS_DATESTAMP);
         String time = mAttributes.get(TAG_GPS_TIMESTAMP);
-        if (date == null || time == null) return -1;
+        if (date == null || time == null
+                || (!sNonZeroTimePattern.matcher(date).matches()
+                && !sNonZeroTimePattern.matcher(time).matches())) return -1;
 
         String dateTimeString = date + ' ' + time;
         if (dateTimeString == null) return -1;
